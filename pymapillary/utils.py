@@ -1,5 +1,5 @@
 
-
+#https://www.mapillary.com/developer/api-documentation/#retrieve-image-sources
 def download_image_by_key(key, image_resolution=320):
 
     """

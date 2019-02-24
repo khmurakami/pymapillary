@@ -86,14 +86,83 @@ class Mappilary():
                 }
 
         r = requests.get(url, params=data)
-        print(r.status_code)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
+    def search_sequences(self, userkeys):
+
+        """
+        search sequences
+        """
+
+        url = self.root_url + "/sequences"
+
+        data = {
+                 'userkeys': "{}".format(userkeys),
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
+    def get_sequence_by_key(self, key):
+
+        """
+        get a sequence by key
+        """
+
+        url = self.root_url + "/sequences/" + str(key)
+
+        data = {
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
+    def search_changesets(self, types, per_page):
+
+        """
+        search changesets
+        """
+
+        url = self.root_url + "/changesets"
+
+        data = {
+                 'types': '{}'.format(types),
+                 'per_page': '{}'.format(per_page),
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json\
+
+    def get_changeset_by_key(self, key):
+
+        """
+        get a changeset by key
+        """
+
+        url = self.root_url + "/changesets/" + str(key)
+
+        data = {
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
         http_error_handler(r.status_code)
         raw_json = r.json()
         return raw_json
 
 
 
-
 if __name__ == "__main__":
-    map = Mappilary("")
-    print(map.get_image_detections("trafficsigns", 2))
+    map = Mappilary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+    print(map.search_changesets("location",1))
