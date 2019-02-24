@@ -3,7 +3,7 @@ from error_handling import *
 import requests
 import wget
 
-class Mappilary():
+class Mapillary():
 
     def __init__(self, client_id):
 

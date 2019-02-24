@@ -1,4 +1,4 @@
-from pymapillary import Mappilary
+
 
 def http_error_handler(http_status_code):
 

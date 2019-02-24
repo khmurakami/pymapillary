@@ -1,1 +1,1 @@
-from .pymapillary import Mappilary
+from .pymapillary import Mapillary
