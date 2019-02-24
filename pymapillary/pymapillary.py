@@ -6,8 +6,7 @@ import wget
 class Mappilary():
 
     def __init__(self, client_id):
-        # Root URL of mapillaru calls
-
+        
         if client_id is None:
             raise Exception("No Client id inserted")
 
