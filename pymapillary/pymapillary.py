@@ -16,8 +16,17 @@ class Mappilary():
     # https://www.mapillary.com/developer/api-documentation/#pagination
     def get_pagnation_resources(self, page_num=1, per_page=200):
 
-        """
-        Get pagnation Resources
+        """Get pagnation Resources
+
+        Args:
+            page_num (int): Number of pages to display. Default is 1.
+            per_page (int): Number of responses per page. Default is 200.
+
+        Return:
+            raw_json (dict): Dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
 
         """
 
@@ -40,8 +49,44 @@ class Mappilary():
                       project_keys=None, radius=100, sequence_keys=None,
                       start_time=None, userkeys=None, usernames=None):
 
-        """
-        Search images by parameter
+        """Search images by parameter
+
+        Args:
+            bbox (string): 	  Filter by the bounding box, given
+                              as minx,miny,maxx,maxy. One string comma seperated.
+            closeto (string): Filter by a location that images are close to,
+                              given as longitude,latitude. One string comma
+                              seperated.
+            end_time (string): Filter images that are captured before end_time.
+                               Must be a valid ISO 8601 date.
+            image_keys (string): Filter images by a list of image keys. One
+                                 string comma seperated.
+            lookat (string): Filter images that images are taken in the
+                             direction of the specified location using latitude
+                             and longitude. One string comma seperated.
+            pano (string):   Filter true for panoramic images or false for flat
+                             images. true and false must be in a string
+                             lower case.
+            per_page (int): Number of responses per page. Default is 200.
+            project_keys (string): 	Filter images by projects, given as
+                                    project keys. One string comma seperated.
+            radius (int):    Filter images within the radius parameter around
+                             the closeto parameter location. Default 100 meters.
+            sequence_keys: Filter images by sequences keys. One string comma
+                           seperated.
+            start_time:    Filter images that are captured since start_time.
+                           Must be a valid ISO 8601 date.
+            userkeys:      Filter images captured by users, given as user keys.
+                           One string comma seperated.
+            usernames:     Filter images captured by users, given as usernames.
+                           One string comma seperated.
+
+        Return:
+            raw_json (dict): Dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/images"
@@ -68,8 +113,17 @@ class Mappilary():
 
     def get_image_feature(self, key):
 
-        """
-        Get a image feature by the key
+        """Get a image feature by the image key
+
+        Args:
+            key (string):    Takes in a image key.
+
+        Return:
+            raw_json (dict): Dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/images/" + key
@@ -88,8 +142,36 @@ class Mappilary():
                                 per_page=200, radius=50, userkeys=None,
                                 usernames=None, values=None):
 
-        """
-        get image detections
+        """Search image detections by parameters
+
+        Args:
+            bbox (string): 	  Filter by the bounding box, given
+                              as minx,miny,maxx,maxy. One string comma seperated.
+            closeto (string): Filter by a location that images are close to,
+                              given as longitude,latitude. One string comma
+                              seperated.
+            image_keys (string): Filter images by a list of image keys. One
+                                 string comma seperated.
+            layers (string):  Filter image detections by layers.
+            max_score (int):  Filter image detections with the maximum score.
+            min_score (int):  Filter Image detections with the minimal score.
+            per_page (int):   Number of responses per page. Default is 200.
+            project_keys (string): 	Filter images by projects, given as
+                                    project keys. One string comma seperated.
+            radius (int):     Filter images within the radius parameter around
+                              the closeto parameter location. Default 50 meters.
+            userkeys:         Filter images captured by users, given as user
+                              keys. One string comma seperated.
+            usernames:        Filter images captured by users, given as
+                              usernames. One string comma seperated.
+            values:           Filter image detections by values.
+
+        Return:
+            raw_json (dict):  Dictionary of the result json requested
+
+        Raises:
+            Exception error:  Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/image_detections"
@@ -118,8 +200,29 @@ class Mappilary():
                          starred="false", start_time=None, userkeys=None,
                          usernames=None):
 
-        """
-        search sequences
+        """Search sequences
+
+        Args:
+            bbox (string): 	  Filter by the bounding box, given
+                              as minx,miny,maxx,maxy. One string comma seperated.
+            end_time (string): Filter images that are captured before end_time.
+                              Must be a valid ISO 8601 date.
+            per_page (int):   Number of responses per page. Default is 200.
+            starred (string): Filter sequences that are starred (true) or
+                              non-starred (false). Must be a string lowercase.
+            start_time:       Filter images that are captured since start_time.
+                              Must be a valid ISO 8601 date.
+            userkeys:         Filter images captured by users, given as user
+                              keys. One string comma seperated.
+            usernames:        Filter images captured by users, given as
+                              usernames. One string comma seperated.
+
+        Return:
+            raw_json (dict): dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/sequences"
@@ -142,8 +245,17 @@ class Mappilary():
 
     def get_sequence_by_key(self, key):
 
-        """
-        get a sequence by key
+        """Get a sequence by key
+
+        Args:
+            key (string):    Takes in a sequence key.
+
+        Return:
+            raw_json (dict): Dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/sequences/" + key
@@ -160,8 +272,23 @@ class Mappilary():
     def search_changesets(self, bbox=None, per_page=200, states=None,
                           types=None, userkeys=None):
 
-        """
-        search changesets
+        """Search changesets
+
+        Args:
+            bbox (string): 	  Filter by the bounding box, given
+                              as minx,miny,maxx,maxy. One string comma seperated.
+            per_page (int):   Number of responses per page. Default is 200.
+            states (string):  Filter by changeset states.
+            types (string):   Filter by changeset types.
+            userkeys:         Filter images captured by users,
+                              given as user keys. One string comma seperated.
+
+        Return:
+            raw_json (dict):  Dictionary of the result json requested
+
+        Raises:
+            Exception error:  Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/changesets"
@@ -182,8 +309,17 @@ class Mappilary():
 
     def get_changeset_by_key(self, key):
 
-        """
-        get a changeset by key
+        """Get a changeset by key
+
+        Args:
+            key (string):    Takes in a changeset key.
+
+        Return:
+            raw_json (dict): Dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/changesets/" + key
@@ -199,12 +335,40 @@ class Mappilary():
 
     def search_map_features(self, bbox=None, closeto=None, layers=None,
                             max_nbr_image_detections=None,
-                            min_nbr_image_detections=None, per_page=200
+                            min_nbr_image_detections=None, per_page=200,
                             radius=100, userkeys=None, usernames=None,
                             values=None):
 
-        """
-        search map features
+        """Search map features
+
+        Args:
+            bbox (string): 	  Filter by the bounding box, given
+                              as minx,miny,maxx,maxy. One string comma seperated.
+            closeto (string): Filter by a location that images are close to,
+                              given as longitude,latitude. One string comma
+                              seperated.
+            layers (string):  Filter image detections by layers.
+            max_nbr_image_detections (int):  The maximum number of image
+                                             detections that detect the map
+                                             feature.
+            min_nbr_image_detections (int):  The minimum number of image
+                                             detections that detect the map
+                                             feature.
+            per_page (int):   Number of responses per page. Default is 200.
+            radius (int):     Filter images within the radius parameter around
+                              the closeto parameter location. Default 50 meters.
+            userkeys:         Filter images captured by users, given as user
+                              keys. One string comma seperated.
+            usernames:        Filter images captured by users, given as
+                              usernames. One string comma seperated.
+            values:           Filter image detections by values.
+
+        Return:
+            raw_json (dict):  Dictionary of the result json requested
+
+        Raises:
+            Exception error:  Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/map_features"
@@ -231,8 +395,22 @@ class Mappilary():
     def search_users(self, bbox=None, per_page=200, userkeys=None,
                      usernames=None):
 
-        """
-        search users
+        """Search users
+
+        Args:
+            bbox (string): 	  Filter by the bounding box, given
+                              as minx,miny,maxx,maxy. One string comma seperated.
+            per_page (int):   Number of responses per page. Default is 200.
+            userkeys:         Filter images captured by users, given as user
+                              keys. One string comma seperated.
+            usernames:        Filter images captured by users, given as
+                              usernames. One string comma seperated.
+
+        Return:
+            raw_json (dict): dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
         """
 
         url = self.root_url + "/users"
@@ -252,8 +430,17 @@ class Mappilary():
 
     def get_user_by_key(self, key):
 
-        """
-        get a user by key
+        """Get a user by a userkey
+
+        Args:
+            key (string):    Takes in a user key.
+
+        Return:
+            raw_json (dict): Dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/users/" + key
@@ -269,8 +456,17 @@ class Mappilary():
 
     def get_user_stats_by_key(self, key):
 
-        """
-        get a user by key
+        """Get a users stats by a userkey
+
+        Args:
+            key (string):    Takes in a user key.
+
+        Return:
+            raw_json (dict): Dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/users/" + key + "/stats"
@@ -289,8 +485,30 @@ class Mappilary():
                                     start_time=None, userkeys=None,
                                     usernames=None):
 
-        """
-        filter leaderboards on image upload
+        """Filter leaderboards on image upload
+
+        Args:
+            bbox (string): 	  Filter by the bounding box, given
+                              as minx,miny,maxx,maxy. One string comma seperated.
+            end_time (string): Filter images that are captured before end_time.
+                               Must be a valid ISO 8601 date.
+            iso_countries (string): Count images in the specified countires,
+                                    given as ISO 3166 country codes.
+            per_page (int):   Number of responses per page. Default is 200.
+            start_time:       Filter images that are captured since start_time.
+                              Must be a valid ISO 8601 date.
+            userkeys:         Filter images captured by users, given as user
+                              keys.
+                              One string comma seperated.
+            usernames:        Filter images captured by users, given as
+                              usernames. One string comma seperated.
+
+        Return:
+            raw_json (dict): Dictionary of the result json requested
+
+        Raises:
+            Exception error: Uses HTTP error handler to check status code
+
         """
 
         url = self.root_url + "/leaderboard/images"
@@ -310,9 +528,3 @@ class Mappilary():
         http_error_handler(r.status_code)
         raw_json = r.json()
         return raw_json
-
-
-
-if __name__ == "__main__":
-    map = Mappilary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
-    print(map.search_images(usernames="maning"))
