@@ -47,7 +47,6 @@ class Mappilary():
         url = self.root_url + "/images"
 
         data = {
-                 #'bbox': '{}'.format(bbox),
                  'bbox': bbox,
                  'closeto': closeto,
                  'end_time': end_time,
@@ -73,7 +72,7 @@ class Mappilary():
         Get a image feature by the key
         """
 
-        url = self.root_url + "/images" + "/" + key
+        url = self.root_url + "/images/" + key
 
         data = {
                  'client_id': '{}'.format(self.client_id)
@@ -84,7 +83,10 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
-    def search_image_detections(self, layers, per_page):
+    def search_image_detections(self, bbox=None, closeto=None, image_keys=None,
+                                layers=None, max_score=None, min_score=None,
+                                per_page=200, radius=50, userkeys=None,
+                                usernames=None, values=None):
 
         """
         get image detections
@@ -93,9 +95,17 @@ class Mappilary():
         url = self.root_url + "/image_detections"
 
         data = {
-                 'layers': "{}".format(layers),
-                 #'bbox': "{}".format(layers),
-                 'per_page': "{}".format(per_page),
+                 'bbox': bbox,
+                 'closeto': closeto,
+                 'image_keys': image_keys,
+                 'layers': layers,
+                 'max_score': max_score,
+                 'min_score': min_score,
+                 'per_page': per_page,
+                 'radius': radius,
+                 'userkeys': userkeys,
+                 'usernames': usernames,
+                 'values': values,
                  'client_id': '{}'.format(self.client_id)
                 }
 
@@ -104,7 +114,9 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
-    def search_sequences(self, userkeys):
+    def search_sequences(self, bbox=None, end_time=None, per_page=200,
+                         starred="false", start_time=None, userkeys=None,
+                         usernames=None):
 
         """
         search sequences
@@ -113,7 +125,13 @@ class Mappilary():
         url = self.root_url + "/sequences"
 
         data = {
-                 'userkeys': "{}".format(userkeys),
+                 'bbox': bbox,
+                 'end_time': end_time,
+                 'per_page': per_page,
+                 'starred': starred,
+                 'start_time': start_time,
+                 'userkeys': userkeys,
+                 'usernames': usernames,
                  'client_id': '{}'.format(self.client_id)
                 }
 
@@ -128,7 +146,7 @@ class Mappilary():
         get a sequence by key
         """
 
-        url = self.root_url + "/sequences/" + str(key)
+        url = self.root_url + "/sequences/" + key
 
         data = {
                  'client_id': '{}'.format(self.client_id)
@@ -139,7 +157,8 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
-    def search_changesets(self, types, per_page):
+    def search_changesets(self, bbox=None, per_page=200, states=None,
+                          types=None, userkeys=None):
 
         """
         search changesets
@@ -148,8 +167,11 @@ class Mappilary():
         url = self.root_url + "/changesets"
 
         data = {
-                 'types': '{}'.format(types),
-                 'per_page': '{}'.format(per_page),
+                 'bbox': bbox,
+                 'per_page': per_page,
+                 'states': states,
+                 'types': types,
+                 'userkeys': userkeys,
                  'client_id': '{}'.format(self.client_id)
                 }
 
@@ -164,7 +186,7 @@ class Mappilary():
         get a changeset by key
         """
 
-        url = self.root_url + "/changesets/" + str(key)
+        url = self.root_url + "/changesets/" + key
 
         data = {
                  'client_id': '{}'.format(self.client_id)
@@ -175,7 +197,11 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
-    def search_map_features(self, layers, per_page):
+    def search_map_features(self, bbox=None, closeto=None, layers=None,
+                            max_nbr_image_detections=None,
+                            min_nbr_image_detections=None, per_page=200
+                            radius=100, userkeys=None, usernames=None,
+                            values=None):
 
         """
         search map features
@@ -184,8 +210,16 @@ class Mappilary():
         url = self.root_url + "/map_features"
 
         data = {
-                 'layers': '{}'.format(layers),
-                 'per_page': '{}'.format(per_page),
+                 'bbox': bbox,
+                 'closeto': closeto,
+                 'layers': layers,
+                 'max_nbr_image_detections': max_nbr_image_detections,
+                 'min_nbr_image_detections': min_nbr_image_detections,
+                 'per_page': per_page,
+                 'radius': radius,
+                 'userkeys': userkeys,
+                 'usernames': usernames,
+                 'values': values,
                  'client_id': '{}'.format(self.client_id)
                 }
 
@@ -194,7 +228,8 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
-    def search_users(self, per_page):
+    def search_users(self, bbox=None, per_page=200, userkeys=None,
+                     usernames=None):
 
         """
         search users
@@ -203,7 +238,10 @@ class Mappilary():
         url = self.root_url + "/users"
 
         data = {
-                 'per_page': '{}'.format(per_page),
+                 'bbox': bbox,
+                 'per_page': per_page,
+                 'userkeys': userkeys,
+                 'usernames': usernames,
                  'client_id': '{}'.format(self.client_id)
                 }
 
@@ -218,7 +256,7 @@ class Mappilary():
         get a user by key
         """
 
-        url = self.root_url + "/users/" + str(key)
+        url = self.root_url + "/users/" + key
 
         data = {
                  'client_id': '{}'.format(self.client_id)
@@ -235,7 +273,7 @@ class Mappilary():
         get a user by key
         """
 
-        url = self.root_url + "/users/" + str(key) + "/stats"
+        url = self.root_url + "/users/" + key + "/stats"
 
         data = {
                  'client_id': '{}'.format(self.client_id)
@@ -246,7 +284,10 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
-    def filter_image_upload_lboards(self, per_page):
+    def filter_image_upload_lboards(self, bbox=None, end_time=None,
+                                    iso_countries=None, per_page=200,
+                                    start_time=None, userkeys=None,
+                                    usernames=None):
 
         """
         filter leaderboards on image upload
@@ -255,7 +296,13 @@ class Mappilary():
         url = self.root_url + "/leaderboard/images"
 
         data = {
+                 'bbox': bbox,
+                 'end_time': end_time,
+                 'iso_countries': iso_countries,
                  'per_page': '{}'.format(per_page),
+                 'start_time': start_time,
+                 'userkeys': userkeys,
+                 'usernames': usernames,
                  'client_id': '{}'.format(self.client_id)
                 }
 
