@@ -1,8 +1,6 @@
 import requests
 
-
 class OauthHandler():
 
-    self.
-
-    https://a.mapillary.com/v2/oauth/token
+    def __init__(self):
+        self.oauth_url = https://a.mapillary.com/v2/oauth/token
