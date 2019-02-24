@@ -1,6 +1,7 @@
 from error_handling import *
 
 import requests
+import wget
 
 class Mappilary():
 
@@ -30,7 +31,7 @@ class Mappilary():
                 }
 
         r = requests.get(url, params=data)
-        http_error_handler(r)
+        http_error_handler(r.status_code)
         raw_json = r.json()
         return raw_json
 
@@ -52,25 +53,47 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
-    def get_image_feature(self, sequence_key):
+    def get_image_feature(self, key):
 
         """
-        Get a image feature by the sequence key
+        Get a image feature by the key
         """
 
-        url = self.root_url + "/images" + "/" + sequence_key
+        url = self.root_url + "/images" + "/" + key
 
         data = {
                  'client_id': '{}'.format(self.client_id)
                 }
 
         r = requests.get(url, params=data)
-        http_error_handler(r)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
+    def get_image_detections(self, layers, per_page):
+
+        """
+        get image detections
+        """
+
+        url = self.root_url + "/image_detections"
+
+        data = {
+                 'layers': "{}".format(layers),
+                 #'bbox': "{}".format(layers),
+                 'per_page': "{}".format(per_page),
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        print(r.status_code)
+        http_error_handler(r.status_code)
         raw_json = r.json()
         return raw_json
 
 
 
+
 if __name__ == "__main__":
     map = Mappilary("")
-    print(map.get_image_feature("LwrHXqFRN_pszCopTKHF_Q"))
+    print(map.get_image_detections("trafficsigns", 2))
