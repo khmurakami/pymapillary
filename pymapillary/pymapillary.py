@@ -72,5 +72,5 @@ class Mappilary():
 
 
 if __name__ == "__main__":
-    map = Mappilary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+    map = Mappilary("")
     print(map.get_image_feature("LwrHXqFRN_pszCopTKHF_Q"))
