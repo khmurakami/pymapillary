@@ -2,8 +2,6 @@ from pymapillary import Mappilary
 
 import requests
 
-
-
 def http_error_handler(http_status_code):
 
     '''Displays reason for http status code
@@ -21,6 +19,4 @@ def http_error_handler(http_status_code):
     elif http_status_code is 500:
         raise Exception("500: Servers refuse to work. Either systems are not operational, or it is a service bug which is worth a report at https://github.com/mapillary/mapillary_issues")
     else:
-        continue
-
-    return 0
+        return None
