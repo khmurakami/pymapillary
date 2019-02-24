@@ -232,8 +232,26 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
+    def filter_image_upload_lboards(self, per_page):
+
+        """
+        filter leaderboards on image upload
+        """
+
+        url = self.root_url + "/leaderboard/images"
+
+        data = {
+                 'per_page': '{}'.format(per_page),
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
 
 
 if __name__ == "__main__":
-    map = Mappilary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
-    print(map.get_user_stats_by_key("2BJl04nvnfW1y2GNaj7x5w"))
+    map = Mappilary("")
+    print(map.filter_image_upload_lboards(1))
