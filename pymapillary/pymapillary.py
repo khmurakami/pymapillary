@@ -70,7 +70,7 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
-    def get_image_detections(self, layers, per_page):
+    def search_image_detections(self, layers, per_page):
 
         """
         get image detections
@@ -142,7 +142,7 @@ class Mappilary():
         r = requests.get(url, params=data)
         http_error_handler(r.status_code)
         raw_json = r.json()
-        return raw_json\
+        return raw_json
 
     def get_changeset_by_key(self, key):
 
@@ -161,8 +161,79 @@ class Mappilary():
         raw_json = r.json()
         return raw_json
 
+    def search_map_features(self, layers, per_page):
+
+        """
+        search map features
+        """
+
+        url = self.root_url + "/map_features"
+
+        data = {
+                 'layers': '{}'.format(layers),
+                 'per_page': '{}'.format(per_page),
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
+    def search_users(self, per_page):
+
+        """
+        search users
+        """
+
+        url = self.root_url + "/users"
+
+        data = {
+                 'per_page': '{}'.format(per_page),
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
+    def get_user_by_key(self, key):
+
+        """
+        get a user by key
+        """
+
+        url = self.root_url + "/users/" + str(key)
+
+        data = {
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
+    def get_user_stats_by_key(self, key):
+
+        """
+        get a user by key
+        """
+
+        url = self.root_url + "/users/" + str(key) + "/stats"
+
+        data = {
+                 'client_id': '{}'.format(self.client_id)
+                }
+
+        r = requests.get(url, params=data)
+        http_error_handler(r.status_code)
+        raw_json = r.json()
+        return raw_json
+
 
 
 if __name__ == "__main__":
     map = Mappilary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
-    print(map.search_changesets("location",1))
+    print(map.get_user_stats_by_key("2BJl04nvnfW1y2GNaj7x5w"))
