@@ -6,7 +6,7 @@ import wget
 class Mappilary():
 
     def __init__(self, client_id):
-        
+
         if client_id is None:
             raise Exception("No Client id inserted")
 
@@ -14,7 +14,7 @@ class Mappilary():
         self.client_id = client_id
 
     # https://www.mapillary.com/developer/api-documentation/#pagination
-    def get_pagnation_resources(self, page_num, per_page):
+    def get_pagnation_resources(self, page_num=1, per_page=200):
 
         """
         Get pagnation Resources
@@ -35,7 +35,10 @@ class Mappilary():
         return raw_json
 
     #https://www.mapillary.com/developer/api-documentation/#search-images
-    def search_images(self):
+    def search_images(self, bbox=None, closeto=None, end_time=None,
+                      image_keys=None, lookat=None, pano="false", per_page=200,
+                      project_keys=None, radius=100, sequence_keys=None,
+                      start_time=None, userkeys=None, usernames=None):
 
         """
         Search images by parameter
@@ -44,6 +47,18 @@ class Mappilary():
         url = self.root_url + "/images"
 
         data = {
+                 #'bbox': '{}'.format(bbox),
+                 'bbox': bbox,
+                 'closeto': closeto,
+                 'end_time': end_time,
+                 'image_keys': image_keys,
+                 'pano': pano,
+                 'per_page': per_page,
+                 'radius': radius,
+                 'sequence_keys': sequence_keys,
+                 'start_time': start_time,
+                 'userkeys': userkeys,
+                 'usernames': usernames,
                  'client_id': '{}'.format(self.client_id)
                 }
 
@@ -252,5 +267,5 @@ class Mappilary():
 
 
 if __name__ == "__main__":
-    map = Mappilary("")
-    print(map.filter_image_upload_lboards(1))
+    map = Mappilary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+    print(map.search_images(usernames="maning"))
