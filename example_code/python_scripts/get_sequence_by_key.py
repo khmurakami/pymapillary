@@ -8,7 +8,7 @@ from pymapillary.utils import *
 
 key = "cHBf9e8n0pG8O0ZVQHGFBQ"
 
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.get_sequence_by_key(key=key)
 print(raw_json)
 

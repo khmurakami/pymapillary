@@ -13,7 +13,7 @@ per_page = 1 # default is 200
 userkeys = "HvOINSQU9fhnCQTpm0nN7Q"
 usernames = "maning" #example user name
 
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.search_users(userkeys=userkeys, per_page=per_page)
 print(raw_json)
 

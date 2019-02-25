@@ -105,6 +105,8 @@ Response:
 
 Code samples can be found examples_code/python_scripts
 
+![Alt Text](example_code/sample_applications/gif.gif)
+
 ## Testing using Unit Tests
 
 Run test script to test if it works properly

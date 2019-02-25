@@ -8,7 +8,7 @@ from pymapillary.utils import *
 
 key = "obWjkY7TGbstLRNy1qYRD7"
 
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.get_changeset_by_key(key=key)
 print(raw_json)
 

@@ -14,7 +14,7 @@ states = "pending, approved"
 types = "location"
 userkeys = "HvOINSQU9fhnCQTpm0nN7Q"
 
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.search_changesets(types=types, per_page=per_page)
 print(raw_json)
 

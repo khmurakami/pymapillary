@@ -16,7 +16,7 @@ start_time = "2016-03-14T13:44:37.206Z" #start_time" must be a valid ISO 8601 da
 userkeys = "AGfe-07BEJX0-kxpu9J3rA"
 usernames = "maning" #example user name
 
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.filter_image_upload_lboards(iso_countries=iso_countries, per_page=per_page)
 print(raw_json)
 

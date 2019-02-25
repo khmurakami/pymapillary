@@ -24,7 +24,7 @@ userkeys = "HvOINSQU9fhnCQTpm0nN7Q"
 usernames = "maning" #example user name
 
 # Create a Mapillary Object
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.search_images(bbox=bbox, per_page=per_page)
 print(raw_json)
 

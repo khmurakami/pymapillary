@@ -9,7 +9,7 @@ from pymapillary.utils import *
 page_num = 1 # What page you want
 per_page = 1 # Results per page
 
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.get_pagnation_resources(1, 1)
 print(raw_json)
 

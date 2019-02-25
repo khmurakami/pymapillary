@@ -8,7 +8,7 @@ from pymapillary.utils import *
 
 key = "2BJl04nvnfW1y2GNaj7x5w"
 
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.get_user_by_key(key=key)
 print(raw_json)
 

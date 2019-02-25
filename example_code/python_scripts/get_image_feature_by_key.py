@@ -8,7 +8,7 @@ from pymapillary.utils import *
 
 key = "LwrHXqFRN_pszCopTKHF_Q"
 
-map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+map = Mapillary("insert client id here")
 raw_json = map.get_image_feature_by_key(key=key)
 print(raw_json)
 
