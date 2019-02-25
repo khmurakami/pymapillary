@@ -111,6 +111,19 @@ Response:
 
 Code samples can be found in example_code
 
+### Download a image by image key
+
+
+```python
+# This sample code downloads an image by the image key used in the
+# API documentation. It downloads a jpg to whatever file this was
+# executed from. It downloads a 1024 image.
+
+from utils import *
+
+download_image_by_key("LwrHXqFRN_pszCopTKHF_Q", 1024. '/image.jpg')
+```
+
 ### Create a video from a sequence result
 
 This gif shows a sample part of a video created from using a sequence key to get a list of image keys. Then using cv2 and glob to create the video. To run the application you need to install cv2 and glob. The sample application can be found in example_code/sample_applications
@@ -158,3 +171,4 @@ $ ./pagnation_example.sh
 - Have example parsing json
 - Make README.md better
 - create upload function
+- add support for gpx format
