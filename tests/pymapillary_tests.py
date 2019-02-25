@@ -8,6 +8,7 @@ import os
 
 # Insert your own key as a string here
 API_KEY = os.environ['MAPILLARY_KEY']
+#API_KEY
 
 class TestMapillaryMethods(unittest.TestCase):
 
