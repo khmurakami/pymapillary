@@ -69,11 +69,18 @@ class TestMapillaryMethods(unittest.TestCase):
 
         self.assertEqual("2016-03-14T13:44:37.206Z", properties_captured_at_json)
 
+    def test_search_changesets(self):
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
 
+        types = "location"
+        per_page = 1 # default is 200
 
+        raw_json = map.search_changesets(types=types, per_page=per_page)
 
+        for i in raw_json:
+            type_json = i['type']
 
-
+        self.assertEqual("location", type_json)
 
 if __name__ == '__main__':
     unittest.main()
