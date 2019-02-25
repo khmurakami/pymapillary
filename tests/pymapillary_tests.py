@@ -47,6 +47,18 @@ class TestMapillaryMethods(unittest.TestCase):
 
         self.assertEqual(323.0319999999999, properties_ca_angle)
 
+    def test_search_sequences(self):
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+
+        userkeys = "AGfe-07BEJX0-kxpu9J3rA"
+        per_page = 1
+
+        raw_json = map.search_sequences(userkeys=userkeys, per_page=per_page)
+        type_json = raw_json['type']
+
+        self.assertEqual("FeatureCollection", type_json)
+
+
 
 if __name__ == '__main__':
     unittest.main()

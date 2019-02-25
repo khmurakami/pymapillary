@@ -69,6 +69,11 @@ $ cd example_curl_requests
 $ ./pagnation_example.sh
 ```
 
+## Notes
+
+sample_image_detections is not tested because I don't have access to it
+
+
 ## TODO
 
 - Clean up example code
