@@ -4,6 +4,7 @@
 import requests
 import wget
 import os
+import json
 
 # https://www.mapillary.com/developer/api-documentation/#retrieve-image-sources
 def download_image_by_key(key, image_resolution=320, download_path=None):
@@ -35,7 +36,7 @@ def download_image_by_key(key, image_resolution=320, download_path=None):
 
     return True
 
-def return_json_file(self, raw_json, file_name):
+def return_json_file(raw_json, file_name):
 
     """Returns nicely formated json file as .json. Used for debugging.
 

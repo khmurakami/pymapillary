@@ -1,6 +1,9 @@
-import requests
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-class OauthHandler():
+#import requests
 
-    def __init__(self):
-        self.oauth_url = https://a.mapillary.com/v2/oauth/token
+#class OauthHandler():
+
+#    def __init__(self):
+#        self.oauth_url = https://a.mapillary.com/v2/oauth/token
