@@ -5,6 +5,7 @@
 # on the variables that are declared below.
 
 from pymapillary import Mapillary
+from pymapillary.utils import *
 
 # Every parameter that can be passed in to this search function
 # Plug and play as you please
@@ -27,7 +28,5 @@ map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
 raw_json = map.search_images(bbox=bbox, per_page=per_page)
 print(raw_json)
 
-# Result JSON
-"""
-{u'type': u'FeatureCollection', u'features': [{u'geometry': {u'type': u'Point', u'coordinates': [16.432976, 7.249027]}, u'type': u'Feature', u'properties': {u'username': u'pierregeo', u'sequence_key': u'LMlIPUNhaj24h_q9v4ArNw', u'camera_make': u'Apple', u'user_key': u'AGfe-07BEJX0-kxpu9J3rA', u'ca': 329.94820000000004, u'camera_model': u'iPhone5,4', u'key': u'G_SIwxNcioYeutZuA8Rurw', u'pano': False, u'captured_at': u'2016-03-14T13:45:45.849Z'}}]}
-"""
+# Download the beautified json for debugging
+return_json_file(raw_json, "../sample_json_output/search_images_example.json")

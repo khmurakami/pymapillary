@@ -36,5 +36,17 @@ class TestMapillaryMethods(unittest.TestCase):
 
         self.assertEqual([16.432976, 7.249027], coordinate)
 
+    def test_get_image_feature_by_key(self):
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+
+        key = "LwrHXqFRN_pszCopTKHF_Q"
+
+        raw_json = map.get_image_feature_by_key(key=key)
+
+        properties_ca_angle = raw_json['properties']['ca']
+
+        self.assertEqual(323.0319999999999, properties_ca_angle)
+
+
 if __name__ == '__main__':
     unittest.main()

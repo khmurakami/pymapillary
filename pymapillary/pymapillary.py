@@ -114,7 +114,7 @@ class Mapillary():
         raw_json = r.json()
         return raw_json
 
-    def get_image_feature(self, key):
+    def get_image_feature_by_key(self, key):
 
         """Get a image feature by the image key
 
