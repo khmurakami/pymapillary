@@ -6,10 +6,13 @@ from pymapillary import Mapillary
 import unittest
 import os
 
+# Insert your own key as a string here
+API_KEY = os.environ['MAPILLARY_KEY']
+
 class TestMapillaryMethods(unittest.TestCase):
 
     def test_get_pagnation_resources(self):
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         page_num = 1
         per_page = 1
@@ -22,7 +25,7 @@ class TestMapillaryMethods(unittest.TestCase):
         self.assertEqual(type([]), type(features_json))
 
     def test_search_images(self):
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         bbox = "16.430300,7.241686,16.438757,7.253186"
         per_page = 1
@@ -37,7 +40,7 @@ class TestMapillaryMethods(unittest.TestCase):
         self.assertEqual([16.432976, 7.249027], coordinate)
 
     def test_get_image_feature_by_key(self):
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         key = "LwrHXqFRN_pszCopTKHF_Q"
 
@@ -48,7 +51,7 @@ class TestMapillaryMethods(unittest.TestCase):
         self.assertEqual(323.0319999999999, properties_ca_angle)
 
     def test_search_sequences(self):
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         userkeys = "AGfe-07BEJX0-kxpu9J3rA"
         per_page = 1
@@ -59,7 +62,7 @@ class TestMapillaryMethods(unittest.TestCase):
         self.assertEqual("FeatureCollection", type_json)
 
     def test_get_sequence_by_key(self):
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         key = "cHBf9e8n0pG8O0ZVQHGFBQ"
 
@@ -70,7 +73,7 @@ class TestMapillaryMethods(unittest.TestCase):
         self.assertEqual("2016-03-14T13:44:37.206Z", properties_captured_at_json)
 
     def test_search_changesets(self):
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         types = "location"
         per_page = 1 # default is 200
@@ -83,7 +86,7 @@ class TestMapillaryMethods(unittest.TestCase):
         self.assertEqual("location", type_json)
 
     def test_get_changeset_by_key(self):
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         key = "obWjkY7TGbstLRNy1qYRD7"
 
@@ -94,7 +97,7 @@ class TestMapillaryMethods(unittest.TestCase):
         self.assertEqual("location", type_json)
 
     def test_search_users(self):
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         userkeys = "HvOINSQU9fhnCQTpm0nN7Q"
         per_page = 1 # default is 200
@@ -108,7 +111,7 @@ class TestMapillaryMethods(unittest.TestCase):
 
     def test_get_user_by_key(self):
 
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         key = "2BJl04nvnfW1y2GNaj7x5w"
 
@@ -120,7 +123,7 @@ class TestMapillaryMethods(unittest.TestCase):
 
     def test_get_user_stats_by_key(self):
 
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         key = "2BJl04nvnfW1y2GNaj7x5w"
 
@@ -132,7 +135,7 @@ class TestMapillaryMethods(unittest.TestCase):
 
     def test_filter_image_upload_lboards(self):
 
-        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+        map = Mapillary(API_KEY)
 
         iso_countries = "SE" # given as ISO 3166 country codes.
         per_page = 1

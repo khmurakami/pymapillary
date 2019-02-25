@@ -12,6 +12,11 @@ Also listed in requirements.txt:
 - requests==2.21.0
 - wget==3.2
 
+Optional dependencies for sample application
+
+- opencv-python==4.0.0.21
+- glob3==0.0.1
+
 ## Install
 
 #### Install Locally
@@ -29,6 +34,7 @@ $ python3 -m virutalenv env
 $ source env/bin/activate
 $ python3 setup.py install
 ```
+
 ## Using the Python Wrapper
 
 Descriptions of functions can be found inside pymapillary/pymapillary.py
@@ -103,7 +109,24 @@ Response:
 
 ## Samples
 
-Code samples can be found examples_code/python_scripts
+Code samples can be found in example_code
+
+### Create a video from a sequence result
+
+This gif shows a sample part of a video created from using a sequence key to get a list of image keys. Then using cv2 and glob to create the video. To run the application you need to install cv2 and glob. The sample application can be found in example_code/sample_applications
+
+Install Dependencies
+```shell
+$ pip install opencv-python
+$ pip install glob3
+```
+
+Run application
+```shell
+$ python create_video_from_sequence.py
+```
+
+Result
 
 ![Alt Text](example_code/sample_applications/result.gif)
 
@@ -132,7 +155,6 @@ $ ./pagnation_example.sh
 
 ## TODO
 
-- Clean up example code
 - Have example parsing json
 - Make README.md better
 - create upload function
