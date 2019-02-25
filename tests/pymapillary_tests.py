@@ -82,5 +82,15 @@ class TestMapillaryMethods(unittest.TestCase):
 
         self.assertEqual("location", type_json)
 
+    def test_get_changeset_by_key(self):
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+
+        key = "obWjkY7TGbstLRNy1qYRD7"
+        raw_json = map.get_changeset_by_key(key=key)
+
+        type_json = raw_json['type']
+
+        self.assertEqual("location", type_json)
+
 if __name__ == '__main__':
     unittest.main()
