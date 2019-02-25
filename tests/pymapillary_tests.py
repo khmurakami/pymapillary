@@ -14,7 +14,7 @@ class TestMapillaryMethods(unittest.TestCase):
         raw_json = map.search_images(bbox=bbox, per_page=per_page)
         features_json = raw_json['features']
 
-        # The jsos is in a list
+        # The json's is in a list
         for features in features_json:
             coordinate = features['geometry']['coordinates']
             print(coordinate)

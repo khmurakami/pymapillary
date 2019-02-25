@@ -1,4 +1,9 @@
-from mapillary import Mappilary
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-map = Mappilary("")
+# This sample code
+
+from pymapillary import Mapillary
+
+map = Mappilary("insert client id here")
 print(map.search_map_features("trafficsigns",1))

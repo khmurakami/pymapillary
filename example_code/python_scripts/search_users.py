@@ -1,5 +1,9 @@
-from mapillary import Mappilary
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+# This sample code
 
-map = Mappilary("")
+from pymapillary import Mapillary
+
+map = Mappilary("insert client id here")
 print(map.search_users(1))

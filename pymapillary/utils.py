@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import requests
 import wget
 import os
@@ -29,7 +32,7 @@ def download_image_by_key(key, image_resolution=320, download_path=None):
 
     # Use the wget library to download the url
     filename = wget.download(url, download_path)
-    
+
     return True
 
 def return_json_file(self, raw_json, file_name):

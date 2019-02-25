@@ -1,7 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from error_handling import *
 
 import requests
 import wget
+
 
 class Mapillary():
 
