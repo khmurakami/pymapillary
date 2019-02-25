@@ -4,6 +4,13 @@
 # This sample code
 
 from pymapillary import Mapillary
+from pymapillary.utils import *
 
-map = Mappilary("insert client id here")
-print(map.get_user_stats_by_key("2BJl04nvnfW1y2GNaj7x5w"))
+key = "2BJl04nvnfW1y2GNaj7x5w"
+
+map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+raw_json = map.get_user_stats_by_key(key=key)
+print(raw_json)
+
+# Download the beautified json for debugging
+return_json_file(raw_json, "../sample_json_output/get_user_stats_by_key_example.json")

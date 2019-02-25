@@ -106,6 +106,32 @@ class TestMapillaryMethods(unittest.TestCase):
 
         self.assertEqual("maning", username_json)
 
+    def test_get_user_by_key(self):
+
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+
+        key = "2BJl04nvnfW1y2GNaj7x5w"
+
+        raw_json = map.get_user_by_key(key=key)
+
+        username_json = raw_json['username']
+
+        self.assertEqual("gyllen", username_json)
+
+    def test_get_user_stats_by_key(self):
+
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+
+        key = "2BJl04nvnfW1y2GNaj7x5w"
+
+        raw_json = map.get_user_stats_by_key(key=key)
+
+        user_key_json = raw_json['user_key']
+
+        self.assertEqual("2BJl04nvnfW1y2GNaj7x5w", user_key_json)
+
+
+
 
 
 
