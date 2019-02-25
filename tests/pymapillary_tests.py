@@ -86,11 +86,28 @@ class TestMapillaryMethods(unittest.TestCase):
         map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
 
         key = "obWjkY7TGbstLRNy1qYRD7"
+
         raw_json = map.get_changeset_by_key(key=key)
 
         type_json = raw_json['type']
 
         self.assertEqual("location", type_json)
+
+    def test_search_users(self):
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+
+        userkeys = "HvOINSQU9fhnCQTpm0nN7Q"
+        per_page = 1 # default is 200
+
+        raw_json = map.search_users(userkeys=userkeys, per_page=per_page)
+
+        for i in raw_json:
+            username_json = i['username']
+
+        self.assertEqual("maning", username_json)
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
