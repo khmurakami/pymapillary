@@ -130,10 +130,19 @@ class TestMapillaryMethods(unittest.TestCase):
 
         self.assertEqual("2BJl04nvnfW1y2GNaj7x5w", user_key_json)
 
+    def test_filter_image_upload_lboards(self):
 
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
 
+        iso_countries = "SE" # given as ISO 3166 country codes.
+        per_page = 1
 
+        raw_json = map.filter_image_upload_lboards(iso_countries=iso_countries, per_page=per_page)
 
+        for i in raw_json:
+            username_json = i['username']
+
+        self.assertEqual("roadroid", username_json)
 
 if __name__ == '__main__':
     unittest.main()
