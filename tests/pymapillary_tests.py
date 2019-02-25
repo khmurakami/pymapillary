@@ -58,6 +58,21 @@ class TestMapillaryMethods(unittest.TestCase):
 
         self.assertEqual("FeatureCollection", type_json)
 
+    def test_get_sequence_by_key(self):
+        map = Mapillary("SVdKb0JXclRud1I0NGFTbTNnWXNBQTphYTI5MDEwOGRlZmYzNTI3")
+
+        key = "cHBf9e8n0pG8O0ZVQHGFBQ"
+
+        raw_json = map.get_sequence_by_key(key=key)
+
+        properties_captured_at_json = raw_json['properties']['captured_at']
+
+        self.assertEqual("2016-03-14T13:44:37.206Z", properties_captured_at_json)
+
+
+
+
+
 
 
 if __name__ == '__main__':
