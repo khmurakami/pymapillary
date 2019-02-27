@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from pymapillary.error_handling import *
+from .error_handling import *
 
 import requests
 import wget
