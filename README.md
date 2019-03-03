@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.com/khmurakami/pymapillary.svg?token=GdqQUUu1xsypr1oorMoh&branch=master)](https://travis-ci.com/khmurakami/pymapillary)
 [![CodeFactor](https://www.codefactor.io/repository/github/khmurakami/pymapillary/badge)](https://www.codefactor.io/repository/github/khmurakami/pymapillary)
 ![GitHub All Releases](https://img.shields.io/github/downloads/khmurakami/pymapillary/total.svg)
+[![HitCount](http://hits.dwyl.com/khmurakami/pymapillary.svg)](http://hits.dwyl.com/khmurakami/pymapillary)
 
 Python Wrapper for Mapillary API V3
 
